@@ -1,9 +1,9 @@
 Name: YOUR NAME HERE
 
-| Date    |  Time  |                                     Update |
-|:--------|:------:|-------------------------------------------:|
-| April 5 | 9-10pm | I tried to write abstract, efficient code. |
-|         |        |                                            |
+| Date    |    Time     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Update |
+|:--------|:-----------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| April 5 |   9-10pm    |                                                                                                                                                                                                                                                                                                                                                                                                                              I tried to write abstract, efficient code. |
+| Sept 25 | 1:00-1:45pm | My original thoughts on how to appraoch this problem set would be to use binary search but now I am trying to think about how to make those comparisons. During this time I also tried to think about if there was a way to have some sort of constant look up time with the array an array but I am a bit stuck and was not able to make much progress. I am also trying to think about a way to approach this problem with the comparisons we talked about in class.  |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.
