@@ -20,25 +20,59 @@ public class SpellCheck {
      * @return String[] of all mispelled words in the order they appear in text. No duplicates.
      */
     public String[] checkWords(String[] text, String[] dictionary) {
-        Trie dictionaryT = new Trie();
-        Trie misspelledT = new Trie();
 
-        ArrayList<String> mispelled = new ArrayList<>();
+//        Trie code:
+//        Trie dictionaryT = new Trie();
+//        Trie misspelledT = new Trie();
+//
+//        ArrayList<String> mispelled = new ArrayList<>();
+//
+//        for(String word : dictionary){
+//            dictionaryT.insertWord(word);
+//        }
+//
+//        for(String word : text){
+//            if(!dictionaryT.lookUp(word) && !misspelledT.lookUp(word)){
+//                misspelledT.insertWord(word);
+//                mispelled.add(word);
+//            }
+//        }
+//        String[] result = new String[mispelled.size()];
+//        for(int i = 0; i < mispelled.size(); i++){
+//            result[i] = mispelled.get(i);
+//        }
+//        return result;
 
+        // Create TST for the dictionary and one for misspelled words
+        TST dictionaryTST = new TST();
+        TST misspelledTST = new TST();
+
+        ArrayList<String> misspelled = new ArrayList<>();
+
+        // Fill the TST with dictionary
         for(String word : dictionary){
-            dictionaryT.insertWord(word);
+            dictionaryTST.insertWordHelper(word);
         }
 
+        // Check each word in text
         for(String word : text){
-            if(!dictionaryT.lookUp(word) && !misspelledT.lookUp(word)){
-                misspelledT.insertWord(word);
-                mispelled.add(word);
+            boolean inDictionary = dictionaryTST.lookup(word);
+            boolean duplicate = misspelledTST.lookup(word);
+
+            // If not int the dictionary and is not already a misspelled word then add it
+            if(!inDictionary && !duplicate){
+                misspelledTST.insertWordHelper(word);
+                misspelled.add(word);
             }
         }
-        String[] result = new String[mispelled.size()];
-        for(int i = 0; i < mispelled.size(); i++){
-            result[i] = mispelled.get(i);
+
+        // Convert arrayList into array before return array result
+        String[] result = new String[misspelled.size()];
+
+        for(int i = 0; i < misspelled.size(); i++){
+            result[i] = misspelled.get(i);
         }
+
         return result;
     }
 
